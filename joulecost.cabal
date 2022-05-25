@@ -1,0 +1,24 @@
+cabal-version:       2.2
+name:                joulecost
+version:             0
+license:             AGPL-3.0-only
+author:              Sergey Alirzaev
+maintainer:          zl29ah@gmail.com
+build-type:          Simple
+
+Source-repository head
+  type:              git
+  location:          https://github.com/l29ah/joulecost.git
+
+common stuff
+  ghc-options:         -W -fno-warn-tabs -O2 -Werror=missing-fields -threaded -rtsopts "-with-rtsopts -N -qg"
+  build-depends:       base >= 4.9 && < 5,
+                       loop ^>= 0.3.0,
+                       posix-timer ^>= 0.3.0.1,
+                       bytestring ^>= 0.10.12.1,
+                       process ^>= 1.6.13.2,
+  default-language:    Haskell2010
+
+executable joulecost
+  import: stuff
+  main-is:             joulecost.hs
